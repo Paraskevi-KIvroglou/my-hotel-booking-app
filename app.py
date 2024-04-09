@@ -1,12 +1,12 @@
 import os
 import streamlit as st
-import chatbot as demo_chat
+import model as demo_model
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 st.title("Hi, I am Chatbot Philio :woman:")
 st.write("I am your hotel booking assistant. Feel free to start chatting with me.")
 
-tokenizer, model = demo_chat.load_model()
+tokenizer, model = demo_model.load_model()
 
 scrollable_div_style = """
 <style>
@@ -37,7 +37,7 @@ def generate_response(chat_history):
 #Application 
 #Langchain memory in session cache 
 if 'memory' not in st.session_state:
-    st.session_state.memory = demo_chat.demo_miny_memory(model)
+    st.session_state.memory = demo_model.demo_miny_memory(model)
 
 system_content = "You are a friendly chatbot who always helps the user book a hotel room based on his/her needs.Based on the current social norms you wait for the user's response to your proposals."
 #Check if chat history exists in this session
