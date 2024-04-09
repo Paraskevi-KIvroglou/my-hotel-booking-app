@@ -1,4 +1,3 @@
-boto3
 tokenizers==0.13.3
 transformers
 torch
